@@ -20,11 +20,19 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <nav class="navbar">
+      <div class="logo">Amil Planos</div>
+      <ul>
+        <li><a href="#plans">Planos</a></li>
+        <li><a href="#benefits">Benefícios</a></li>
+        <li><a href="#contact">Contato</a></li>
+      </ul>
+    </nav>
     <header class="hero">
-      <h1>Planos de Saúde Amil</h1>
-      <p class="subtitle">Proteção e cuidado para você e sua empresa</p>
+      <h1 class="animate">Planos de Saúde Amil</h1>
+      <p class="subtitle animate">Proteção e cuidado para você e sua empresa</p>
       <a
-        class="cta"
+        class="cta animate"
         href="https://wa.me/5511912097307"
         target="_blank"
         rel="noopener"
@@ -33,7 +41,25 @@
       <p class="hours">Atendimento de 2ª a 6ª feira, das 9h às 17h30</p>
     </header>
 
-    <section class="plans">
+    <section id="benefits" class="benefits reveal">
+      <h2>Benefícios</h2>
+      <div class="benefit-list">
+        <div class="benefit">
+          <i class="fa-solid fa-stethoscope" aria-hidden="true"></i>
+          <p>Rede credenciada ampla e de qualidade.</p>
+        </div>
+        <div class="benefit">
+          <i class="fa-solid fa-heart-pulse" aria-hidden="true"></i>
+          <p>Programas de prevenção e bem-estar.</p>
+        </div>
+        <div class="benefit">
+          <i class="fa-solid fa-headset" aria-hidden="true"></i>
+          <p>Atendimento ao cliente 24 horas.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="plans reveal" id="plans">
       <div class="plan">
         <h2>
           <i class="fa-solid fa-building" aria-hidden="true"></i> Plano
@@ -69,7 +95,7 @@
       </div>
     </section>
 
-    <footer>
+    <footer id="contact">
       <p>
         WhatsApp:
         <a href="https://wa.me/5511912097307" target="_blank" rel="noopener"
@@ -78,5 +104,21 @@
       </p>
       <p>Atendimento de 2ª a 6ª feira, das 9h às 17h30</p>
     </footer>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const elements = document.querySelectorAll(".reveal");
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("active");
+              }
+            });
+          },
+          { threshold: 0.2 }
+        );
+        elements.forEach((el) => observer.observe(el));
+      });
+    </script>
   </body>
 </html>
